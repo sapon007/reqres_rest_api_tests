@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+def junitVersion = "5.10.0",
+    allureVersion = "2.25.0"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "io.qameta.allure:allure-junit5:$allureVersion",
+    )
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+}
